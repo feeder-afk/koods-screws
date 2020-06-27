@@ -12,7 +12,7 @@ class Screws{
 	private $props;
 	private $content;
 	
-	public function __construct( $data = [] ){	
+	public function __construct( array $data ){
 		if( !empty( $data['kind'] ) ){
 			$this->kind = trim( $data['kind'] );
 			$cont = '';
@@ -26,12 +26,15 @@ class Screws{
 			if( $this->hasClose() )
 				$this->content = $cont;
 			$this->props = ( !empty( $data['props'] ) )?$data['props']:'';
-		}else{
+		}else{			
 			if( !is_array( $data ) ){
 				$this->content = $data;
 			}else if( !empty( $data ) ){
 				foreach( $data as $d ){
-					$this->content .= new Screws( $d );					
+					if( is_a( $d, __CLASS__ ) )
+						$this->content .= $d;
+					else
+						$this->content .= new Screws( $d );					
 				}
 			}
 		}
