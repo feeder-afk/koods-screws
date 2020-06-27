@@ -1,10 +1,11 @@
 <?php
 namespace koods;
 /**
- * Clase que crea componentes html
+ * Clase que crea componentes html,
+ * al imprimir o ejecutar el objeto creado devuelve un string con una estructura html
  * 
- * @author muutus
- * @author http://muutus.cl
+ * @author Feeder
+ * @author cmborgono@gmail.com
  */
 class Screws{	
 	private $kind;	
