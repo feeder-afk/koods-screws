@@ -12,7 +12,7 @@ class Screws{
 	private $props;
 	private $content;
 	
-	public function __construct( array $data ){
+	public function __construct( $data = [] ){
 		if( !empty( $data['kind'] ) ){
 			$this->kind = trim( $data['kind'] );
 			$cont = '';
